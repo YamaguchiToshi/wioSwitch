@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+  <style type='text/css'>
+.img-rounded{ border-radius: 20px; border: 1px dotted #555; width: 100% }
+  </style>
+</head>
+
+<body>
+<div class="container">
+<br />
+<div class="col-xs-12">
+	<a href="javascript:void(0)" id="btn01">
+		<!-- PORT0 用の画像 -->
+		<img src="http://droplet.ddo.jp/drops/drops_512_gif/201026.gif" class="img-rounded img-rounded">
+	</a>
+	<!-- PORT0 用の文字列 -->
+	<h2 class="text-center">うれしい</h2>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+// アクセストークン
+const ACCESS_TOKEN = '[ACCESS_TOKEN]';
+
+// PORT0 用のコード
+$('#btn01').bind({
+'touchstart mousedown': function(e) {
+  e.preventDefault();
+  $.post({
+  	url: 'https://us.wio.seeed.io/v1/node/GroveRelayD0/onoff/1?access_token='+ACCESS_TOKEN
+  });  
+},
+'touchend mouseup': function(e) {
+  $.post({
+    url: 'https://us.wio.seeed.io/v1/node/GroveRelayD0/onoff/0?access_token='+ACCESS_TOKEN
+  });
+}
+});
+
+</script>
+</body>
+
+</html>
