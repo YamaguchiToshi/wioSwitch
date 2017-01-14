@@ -23,4 +23,4 @@ Wio Nodeをセットアップする．
 
 ## License
 
-[MIT](http://mit-license.org)
+MIT
